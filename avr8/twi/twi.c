@@ -19,9 +19,6 @@
 #include <avr/interrupt.h>
 #include <util/twi.h>
 #include "twi.h"
-#include "adc.h"
-#include "conversion.h"
-#include "cc.h"
 
 // Curently addressed as slave
 static volatile uint8_t addressed = 0;
