@@ -459,6 +459,13 @@ void TWI_InterruptHandler(TWI_Slave_t *twis, TWI_Master_t *twim)
 
         // We already NAKed the byte so let's do a stop
         TWCR = (1 << TWSTO) | TWI_SLAVE_ON | TWI_ON;
+
+        if (twim)
+        {
+            twim->status = TWIM_STATUS_READY;
+            twim->result = TWIM_RESULT_OK;
+        }
+
         return;
     }
 	else
